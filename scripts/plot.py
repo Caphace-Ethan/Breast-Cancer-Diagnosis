@@ -19,10 +19,10 @@ class Plot():
     ################### PLOTTING FUNCTIONS #####################
 
     def plot_box(self, df:pd.DataFrame, x_col:str, title:str) -> None:
-        plt.figure(figsize=(12, 7))
+        plt.figure(figsize=(6, 3))
         sns.boxplot(data = df, x=x_col)
-        plt.title(title, size=20)
-        plt.xticks(rotation=75, fontsize=14)
+        plt.title(title, size=12)
+        plt.xticks(rotation=15, fontsize=12)
         plt.show()
 
     def plot_hist(self, df:pd.DataFrame, column:str, color:str)->None:
@@ -119,4 +119,5 @@ class Plot():
                              mode="markers", 
                              name="worst",
                              ))
+                             
         fig.show()

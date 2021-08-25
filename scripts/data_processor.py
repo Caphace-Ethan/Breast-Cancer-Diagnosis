@@ -56,3 +56,10 @@ class data_processor():
         df_new = df.drop(column_list, axis=1)
 
         return df_new
+
+    
+    def fix_outlier(self, data, column_list):
+        for column in column_list:
+            data[column] = np.where(data[column] > data[column].quantile(0.95), data[column].median(),data[column])
+        
+        return data

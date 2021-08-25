@@ -33,6 +33,7 @@ conda config --env --set channel_priority strict
 git clone https://github.com/Caphace-Ethan/Breast-Cancer-Diagnosis
 cd Breast-Cancer-Diagnosis
 conda install -r requirements.txt
+sudo apt-get install graphviz or conda install python-graphviz
 ```
 
 ## Data

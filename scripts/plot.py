@@ -88,7 +88,7 @@ class Plot():
         plt.show()
 
 
-    def scatter_feature_plot(self, df, feature1, feature2, title):
+    def scatter_feature_plot(self, df, feature1, feature2, title, fields):
     
         fig = go.Figure()
         fig.update_layout(

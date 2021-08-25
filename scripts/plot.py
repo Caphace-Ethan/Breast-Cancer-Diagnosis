@@ -1,7 +1,9 @@
 # Graph and Diagram Ploting script.
 import seaborn as sns
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 import pandas as pd
+import numpy as np
 from log import logger
 import logging
 import logging.handlers
@@ -74,3 +76,47 @@ class Plot():
         plt.yticks( fontsize=14)
         plt.show()
 
+
+    def heat(self, df, color, size):
+    
+        corr = df.corr()
+        mask = np.zeros_like(corr, dtype=np.bool)
+        mask[np.triu_indices_from(corr)] = True
+        
+        plt.figure(figsize=size)
+        sns.heatmap(corr, mask=mask, annot=True, cmap=color)
+        plt.show()
+
+
+    def scatter_feature_plot(self, df, feature1, feature2, title):
+    
+        fig = go.Figure()
+        fig.update_layout(
+            title=title,
+            width=600,
+            height=400,
+            margin=dict(
+                        l=20,
+                        r=20,
+                        t=40,
+                        b=20,
+                    )
+        )
+        
+        fig.add_trace(go.Scatter(x=df[feature1+"_"+fields[0]], 
+                                y=df[feature2+"_"+fields[0]], 
+                                mode="markers", 
+                                name="mean",
+                                ))
+
+        fig.add_trace(go.Scatter(x=df[feature1+"_"+fields[1]], 
+                                y=df[feature2+"_"+fields[1]], 
+                                mode="markers", 
+                                name="se",
+                                ))
+        fig.add_trace(go.Scatter(x=df[feature1+"_"+fields[2]], 
+                             y=df[feature2+"_"+fields[2]], 
+                             mode="markers", 
+                             name="worst",
+                             ))
+        fig.show()

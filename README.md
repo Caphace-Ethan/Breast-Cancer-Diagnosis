@@ -37,11 +37,27 @@ conda install -r requirements.txt
 
 ## Data
 
-- The 
+### The Dataset Contains the following Attributes
+
+* radius (mean of distances from center to points on the perimeter)
+* texture (standard deviation of gray-scale values)
+* perimeter
+* area
+* smoothness (local variation in radius lengths)
+* compactness (perimeter^2 / area - 1.0)
+* concavity (severity of concave portions of the contour)
+* concave points (number of concave portions of the contour)
+* symmetry
+* fractal dimension ("coastline approximation" - 1)
+
+The mean, standard error (SE) and "worst" or largest (mean of the three largest values) of these features were computed for each image
+
 
 ## Package_Scripts
 Package Scripts are found in ```scripts``` directory, its content is explained below.
 
 - ```FileHandler:``` Helper class for reading and writing different file formats.
 - ```package_config: ```Script for handling package configurations such as location of files and url(s), etc.
+- ```data_processor: ```Script for performing data processing for example computing missing values, fixing outliers, etc.
+- ```plot: ```Script for ploting different figures including box-plot, scatter-plot, histogram, bar-plot, etc.
 - ```log: ```script for logging package logs

@@ -3,6 +3,7 @@ import numpy as np
 from log import logger
 import logging
 import logging.handlers
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 from project_config import Config
 
@@ -63,3 +64,9 @@ class data_processor():
             data[column] = np.where(data[column] > data[column].quantile(0.95), data[column].median(),data[column])
         
         return data
+
+    def data_scaler(self, df):
+        scaler = MinMaxScaler()
+        df = pd.DataFrame(scaler.fit_transform(df))
+
+        return df

@@ -4,5 +4,6 @@ seaborn
 matplotlib
 plotly
 sklearn
+statsmodels
 causalgraphicalmodels
 causalnex
